@@ -3,7 +3,6 @@ import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 import { ConsumptionCardPropsType } from '@/lib/interfaces/types';
 const CunsumptionCard:React.FC<ConsumptionCardPropsType> = (props) => {
   const extractColor = props.iconcolor.split('-').slice(1).join('-');
-  console.log(extractColor)
   return (
     <div className={`bg-white border-l-3 dark:bg-gray-400 dark:text-white border-${extractColor} w-[23%] hover:scale-102 rounded-xl p-3 shadow-md hover:shadow-lg transition-all duration-400 cursor-pointer`}>
       <div className="mb-4 flex items-center text-center justify-between">

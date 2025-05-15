@@ -23,7 +23,7 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`bg-white flex flex-col justify-between dark:bg-gray-500 h-[47rem] ml-4 mt-4 border-2 border-t-6 rounded-md border-t-[#1F5897] border-gray-400 p-1 transition-all duration-300 ${width} overflow-auto custom-scroll`}
+      className={`relative overflow-hidden bg-white flex flex-col justify-between dark:bg-gray-500 h-[47.5rem] ml-4 mt-4 border-2 border-t-6 rounded-md border-t-[#1F5897] border-gray-400 p-1 transition-all duration-300 ${width}`}
     >
       <div>
       <div className={`flex items-center px-2 ${isCollapsed ? 'justify-center':'justify-between'}`}>
@@ -36,7 +36,7 @@ const Sidebar = () => {
           </button>
       </div>
       <hr className="bg-gray-700 dark:bg-white mt-2 w-[100%]"/>
-      <nav className="flex flex-col mt-4">
+      <nav className="flex flex-col max-h-[38rem] mt-4 overflow-auto custom-scroll">
         {sidebarLinks.map(link=>{
           const isActive = pathName === link.href || (pathName.startsWith(link.href)); 
           return(

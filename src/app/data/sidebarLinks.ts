@@ -107,4 +107,40 @@ export const sidebarLinks: SidebarLinkType[] = [
       },
     ],
   },
+  {
+    id:5,
+    name: "Settings",
+    href: "/settings",
+    icon: FiSettings,
+    subLinks: [
+      {
+        name: "Plant Summary",
+        link: "plant-summary",
+        icon: PiPlantLight,
+      },
+      {
+        name: "Status Table",
+        link: "status-table",
+        icon: CiViewTable,
+      },
+    ],
+  },
+  {
+    id:5,
+    name: "Settings",
+    href: "/settings",
+    icon: FiSettings,
+    subLinks: [
+      {
+        name: "Plant Summary",
+        link: "plant-summary",
+        icon: PiPlantLight,
+      },
+      {
+        name: "Status Table",
+        link: "status-table",
+        icon: CiViewTable,
+      },
+    ],
+  },
 ];

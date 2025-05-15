@@ -31,9 +31,9 @@ export default function HomePage() {
         </div>
       </div>
       {/* consumption */}
-      <div className="flex p-1 items-center justify-between gap-2">
+      <div className="flex p-1 items-center justify-between gap-2 md:flex-col">
         {/* left */}
-        <div className="bg-[#E6EAF3] dark:bg-gray-500 border-t-2 border-t-[#80A1D7] rounded-sm flex flex-col items-center pb-4 justify-center w-[60%]">
+        <div className="md:w-full bg-[#E6EAF3] dark:bg-gray-500 border-t-2 border-t-[#80A1D7] rounded-sm flex flex-col items-center pb-4 justify-center w-[60%]">
           <div className="w-full px-5 py-2">
             <div className="flex items-center text-center">
               <Image
@@ -44,7 +44,7 @@ export default function HomePage() {
               />
               <h2 className="text-2xl font-semibold">Total Consumption</h2>
             </div>
-            <span className="text-gray-500 text-xs">
+            <span className="text-gray-500 dark:text-white text-xs">
               Monitor your energy usage across different time periods
             </span>
           </div>
@@ -65,7 +65,7 @@ export default function HomePage() {
           </div>
         </div>
         {/* right */}
-        <div className="bg-[#E6EAF3] dark:bg-gray-500 border-t-2 border-t-[#80A1D7] rounded-sm w-[40%] h-[16rem] flex items-center justify-around">
+        <div className="md:w-full bg-[#E6EAF3] dark:bg-gray-500 border-t-2 border-t-[#80A1D7] rounded-sm w-[40%] h-[16rem] flex items-center justify-around">
           <div>
             <VoltageCurrentMeter value={voltage} />
             <div className="text-center font-semibold text-xl">
@@ -99,8 +99,8 @@ export default function HomePage() {
         </div>
       </div>
       {/* Real time readings */}
-      <div className="w-full  flex item-center gap-2">
-        <div className="w-[50%] bg-[#E6EAF3] dark:bg-gray-500 dark:text-white rounded-sm p-2 border-t-2 border-t-[#80A1D7]">
+      <div className="w-full  flex item-center gap-2 md:flex-col">
+        <div className="w-[50%] md:w-full bg-[#E6EAF3] dark:bg-gray-500 dark:text-white rounded-sm p-2 border-t-2 border-t-[#80A1D7]">
           <div className="bg-[#7EA5C5] flex items-center px-4 rounded-sm justify-between p-2">
             <h3 className="text-white text font-semibold">Real Time Values</h3>
             <div>
@@ -151,9 +151,9 @@ export default function HomePage() {
               )}
             </div>
           </div>
-          <div className="w-full overflow-x-auto space-y-3 py-2">
+          <div className="w-full overflow-x-auto space-y-3 py-5">
             {/* First Row */}
-            <div className="grid grid-flow-col bg auto-cols-[minmax(215px,1fr)] gap-3 w-max px-2 py-3">
+            <div className="grid grid-flow-col auto-cols-[minmax(220px,1fr)] pl-1 pb-3">
               {energyDataDetails
                 .slice(0, Math.ceil(energyDataDetails.length / 2))
                 .map((item) => (
@@ -172,7 +172,7 @@ export default function HomePage() {
             </div>
 
             {/* Second Row */}
-            <div className="grid grid-flow-col bg auto-cols-[minmax(150px,1fr)] gap-3 w-max px-2 py-3">
+            <div className="grid grid-flow-col auto-cols-[minmax(220px,1fr)] pl-1">
               {energyDataDetails
                 .slice(Math.ceil(energyDataDetails.length / 2))
                 .map((item) => (
@@ -192,7 +192,7 @@ export default function HomePage() {
           </div>
         </div>
         {/*  Energy usage */}
-        <div className="w-[50%] p-2 bg-[#E6EAF3] dark:bg-gray-500 dark:text-white border-t-2 border-t-[#80A1D7] rounded-md">
+        <div className="w-[50%] md:w-full p-2 bg-[#E6EAF3] dark:bg-gray-500 dark:text-white border-t-2 border-t-[#80A1D7] rounded-md">
           <EnergyUsageChart />
         </div>
       </div>

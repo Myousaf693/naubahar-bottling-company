@@ -12,8 +12,9 @@ import {
   ChartData,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import React from 'react';
+import React, { useState } from 'react';
 import { useTheme } from 'next-themes';
+import { weekly, monthly, yearly } from '@/app/data/energyUsageChartData';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -35,24 +36,19 @@ const colors = [
   '#8B0000', '#FF0000', '#FFA07A', '#2F4F4F'
 ];
 
-const data: ChartData<'bar'> = {
-  labels,
-  datasets: [
-    {
-      data: energyData,
-      backgroundColor: colors,
-      borderWidth: 1,
-    },
-  ],
-};
-
 
 
 const EnergyUsageChart = () => {
+  const [chartData, setChartData] = useState('weekly')
     const {theme} = useTheme();
     const labelColor = theme === 'dark' ? '#ffffff': '#000000';
+
+    const selectedTimePeriod = chartData === 'weekly'? weekly : chartData === 'monthly' ? monthly : yearly
+
+
     const options: ChartOptions<'bar'> = {
   responsive: true,
+  maintainAspectRatio:false,
   plugins: {
     legend: {
       display: false,
@@ -80,14 +76,28 @@ const EnergyUsageChart = () => {
     }
   },
 };
+
+const data: ChartData<'bar'> = {
+  labels,
+  datasets: [
+    {
+      data: selectedTimePeriod,
+      backgroundColor: colors,
+      borderWidth: 1,
+    },
+  ],
+};
+
+
+
   return (
     <div className="">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-bold">Energy Usage (kWh)</h2>
-        <select className="border px-2 py-1 rounded bg-white dark:bg-gray-500 dark:border-white focus:outlien-none outline-none border-gray-600">
-          <option>Last 7 Days</option>
-          <option>Last 30 Days</option>
-          <option>This Year</option>
+        <select value={chartData} onChange={(e)=>setChartData(e.target.value)} className="border px-2 py-1 rounded bg-white dark:bg-gray-500 dark:border-white focus:outlien-none outline-none border-gray-600">
+          <option value='weekly'>Last 7 Days</option>
+          <option value='monthly'>Last 30 Days</option>
+          <option value='yearly'>This Year</option>
         </select>
       </div>
 
@@ -97,7 +107,7 @@ const EnergyUsageChart = () => {
         </div>
 
         {/* Custom legend with scroll */}
-        <div className="w-full md:w-1/3 h-64 overflow-y-auto border-l pl-4">
+        <div className="w-full md:w-1/3 h-72 overflow-y-auto border-l pl-4">
           {labels.map((label, index) => (
             <div key={index} className="flex justify-between items-center mb-2">
               <div className="flex items-center">
