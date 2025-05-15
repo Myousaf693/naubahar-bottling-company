@@ -35,7 +35,7 @@ const RealTimePowerCard: React.FC<RealTimePowerCardProps> = ({
 };
 const status = getStatus(voltageValue, currentValue, powerValue);
   return (
-    <div className="bg-white w-full dark:bg-gray-400 rounded-lg shadow-sm p-2 border-t-4 border-[#1F5897]">
+    <div className="bg-white w-[13rem] dark:bg-gray-400 rounded-lg shadow-sm p-2 border-t-4 border-[#1F5897]">
       <div className="flex justify-between items-center mb-3">
         <Image
           src={status.image}
