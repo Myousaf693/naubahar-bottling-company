@@ -8,6 +8,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import RealTimePowerCard from "@/components/RealTimePowerCard";
 import { energyDataDetails } from '@/app/data/energyDataDetails'
 import VoltageCurrentMeter from "@/components/VoltageCurrentMeter";
+import EnergyUsageChart from "@/components/EnergyUsageChart";
 
 
 export default function HomePage() {
@@ -125,6 +126,15 @@ export default function HomePage() {
     ))}
   </div>
 </div>
+      </div>
+      {/* Energy usage */}
+      <div className="flex items-center gap-2 mb-20">
+        {/* left section */}
+        <div className="w-[50%] p-2 bg-[#E6EAF3] border-t-2 border-t-[#80A1D7] rounded-md">
+          <EnergyUsageChart/>
+        </div>
+        {/* right section */}
+        <div className="w-[50%] bg-[#E6EAF3] border-t-2 border-t-[#80A1D7] rounded-md"> Right</div>
       </div>
     </div>
   );
