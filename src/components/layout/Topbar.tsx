@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -25,44 +25,64 @@ const Topbar = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
-if (!mounted) return null;
+  if (!mounted) return null;
   return (
-    <div className="top-0 w-full flex items-center h-14 pb-3 justify-between bg-gray-500 px-6">
+    <div className="top-0 w-full flex items-center h-14 pb-3 justify-between bg-white dark:bg-gray-500 px-6">
       <Link href={"/"}>
-        <Image src="/icon.png" alt="Naubahar Logo" width={150} height={150} />
+        {theme === "dark" ? (
+          <Image src={"/icon.png"} width={150} height={150} alt="Logo Image" />
+        ) : (
+          <Image
+            src={"/light-icon.png"}
+            width={150}
+            height={150}
+            alt="Logo Image"
+            className="mt-3"
+          />
+        )}
       </Link>
       <div className="flex items-center justify-center pt-3 gap-3">
         <div>
-          <ThemeSwitcherDropdown/>
+          <ThemeSwitcherDropdown />
         </div>
         <Separator
           orientation="vertical"
           style={{ height: "20px" }}
-          className="border border-white"
+          className="border dark:border-white border-black"
         />
         <div>
-          <NotificationDropdown/>
+          <NotificationDropdown />
         </div>
         <Separator
           orientation="vertical"
           style={{ height: "20px" }}
-          className="border border-white"
+          className="border dark:border-white border-black"
         />
         <div>
           <DropdownMenu>
             <DropdownMenuTrigger>
               <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+                <AvatarImage src="/user.avif" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" sideOffset={10}>
               <DropdownMenuItem>
-                <FaRegUser color="black" size={20}/>
+                <FaRegUser
+                  className={`${
+                    currentTheme === "dark" ? "text-white" : "text-black"
+                  }`}
+                  size={20}
+                />
                 <span>Profile</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <RiLogoutCircleLine color="black" size={20}/>
+                <RiLogoutCircleLine
+                  size={20}
+                  className={`${
+                    currentTheme === "dark" ? "text-white" : "text-black"
+                  }`}
+                />
                 <span>Logout</span>
               </DropdownMenuItem>
             </DropdownMenuContent>

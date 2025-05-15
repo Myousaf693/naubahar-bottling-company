@@ -1,11 +1,10 @@
 import Image from "next/image";
 import React from "react";
 import { EnergyDetailType } from "@/lib/interfaces/types";
-
 // Component Props
 type RealTimePowerCardProps = EnergyDetailType;
 
-const RealTimePowerCard: React.FC<RealTimePowerCardProps> = ({
+const FullScreenRealTimePowerCards: React.FC<RealTimePowerCardProps> = ({
   name,
   voltageValue,
   voltageUnit,
@@ -13,9 +12,9 @@ const RealTimePowerCard: React.FC<RealTimePowerCardProps> = ({
   currentUnit,
   powerValue,
   powerUnit,
-  icon:Icon
+  icon: Icon
 }) => {
-    const getStatus = (voltage: number, current: number, power: number) => {
+  const getStatus = (voltage: number, current: number, power: number) => {
   if (voltage > 0 && current > 0 && power > 0) {
     return {
       image: "/green_bl.gif",
@@ -35,13 +34,13 @@ const RealTimePowerCard: React.FC<RealTimePowerCardProps> = ({
 };
 const status = getStatus(voltageValue, currentValue, powerValue);
   return (
-    <div className="bg-white w-full dark:bg-gray-400 rounded-lg shadow-sm p-2 border-t-4 border-[#1F5897]">
+    <div className="bg-white w-[24%] dark:bg-gray-400 rounded-lg shadow-sm p-2 border-t-4 border-[#1F5897]">
       <div className="flex justify-between items-center mb-3">
         <Image
           src={status.image}
           width={25}
           height={25}
-          alt="Real time data stasu blinker"
+          alt="Real time data status blinker"
         />
         <h3 className="text-sm font-semibold text-gray-800 dark:text-white truncate">
           {name}
@@ -75,7 +74,8 @@ const status = getStatus(voltageValue, currentValue, powerValue);
         </div>
       </div>
     </div>
+
   );
 };
 
-export default RealTimePowerCard;
+export default FullScreenRealTimePowerCards;

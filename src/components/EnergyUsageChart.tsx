@@ -13,6 +13,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import React from 'react';
+import { useTheme } from 'next-themes';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -38,7 +39,6 @@ const data: ChartData<'bar'> = {
   labels,
   datasets: [
     {
-    //   label: 'Energy Usage (kWh)',
       data: energyData,
       backgroundColor: colors,
       borderWidth: 1,
@@ -46,7 +46,12 @@ const data: ChartData<'bar'> = {
   ],
 };
 
-const options: ChartOptions<'bar'> = {
+
+
+const EnergyUsageChart = () => {
+    const {theme} = useTheme();
+    const labelColor = theme === 'dark' ? '#ffffff': '#000000';
+    const options: ChartOptions<'bar'> = {
   responsive: true,
   plugins: {
     legend: {
@@ -58,16 +63,28 @@ const options: ChartOptions<'bar'> = {
     y: {
       beginAtZero: true,
       suggestedMax: 12000,
+      ticks:{
+        color:labelColor,
+        font: {
+          size: 14,
+        }
+      }
     },
+    x:{
+        ticks:{
+        color:labelColor,
+        font: {
+          size: 14,
+        }
+      }
+    }
   },
 };
-
-const EnergyUsageChart = () => {
   return (
-    <div className="border">
+    <div className="">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-bold">Energy Usage (kWh)</h2>
-        <select className="border px-2 py-1 rounded bg-white border-gray-600">
+        <select className="border px-2 py-1 rounded bg-white dark:bg-gray-500 dark:border-white focus:outlien-none outline-none border-gray-600">
           <option>Last 7 Days</option>
           <option>Last 30 Days</option>
           <option>This Year</option>
