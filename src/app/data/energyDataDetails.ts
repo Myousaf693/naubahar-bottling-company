@@ -1,104 +1,133 @@
+import {
+  Factory,              
+  Flame,                
+  Settings2,            
+  Wind,                 
+  ThermometerSun,       
+  Droplets,             
+  PackageCheck,         
+                   
+  Zap,                  
+} from "lucide-react";
+
 export const energyDataDetails = [
   {
     name: "Main-LT",
     voltage: { value: 408, unit: "V" },
     current: { value: 444.7, unit: "A" },
-    power: { value: 313, unit: "kW" }
+    power: { value: 313, unit: "kW" },
+    icon:Zap,
   },
   {
-    name: "Water Treatment",
+    name: "Droplets Treatment",
     voltage: { value: 408, unit: "V" },
     current: { value: 4.9, unit: "A" },
-    power: { value: 3, unit: "kW" }
+    power: { value: 3, unit: "kW" },
+    icon:Droplets,
   },
   {
     name: "Syrup Room",
     voltage: { value: 408.4, unit: "V" },
     current: { value: 3.1, unit: "A" },
-    power: { value: 1, unit: "kW" }
+    power: { value: 1, unit: "kW" },
+    icon:PackageCheck,
   },
   {
     name: "Turbine 1",
     voltage: { value: 408.3, unit: "V" },
     current: { value: 0.2, unit: "A" },
-    power: { value: 0, unit: "kW" }
+    power: { value: 0, unit: "kW" },
+    icon:Factory,
   },
   {
     name: "Evaporator",
     voltage: { value: 405.1, unit: "V" },
     current: { value: 96.1, unit: "A" },
-    power: { value: 50, unit: "kW" }
+    power: { value: 50, unit: "kW" },
+    icon:Droplets,
   },
   {
     name: "Grasso 4",
     voltage: { value: 408.6, unit: "V" },
     current: { value: 0, unit: "A" },
-    power: { value: 0, unit: "kW" }
+    power: { value: 0, unit: "kW" },
+    icon:ThermometerSun,
   },
   {
     name: "Grasso 3",
     voltage: { value: 408.3, unit: "V" },
     current: { value: 0, unit: "A" },
-    power: { value: 0, unit: "kW" }
+    power: { value: 0, unit: "kW" },
+    icon:ThermometerSun,
   },
   {
     name: "Grasso 2",
     voltage: { value: 406, unit: "V" },
     current: { value: 0, unit: "A" },
-    power: { value: 0, unit: "kW" }
+    power: { value: 0, unit: "kW" },
+    icon:ThermometerSun,
   },
   {
     name: "Grasso 1",
     voltage: { value: 406.2, unit: "V" },
     current: { value: 164.9, unit: "A" },
-    power: { value: 92, unit: "kW" }
+    power: { value: 92, unit: "kW" },
+    icon:ThermometerSun,
   },
   {
     name: "Air Compressor (3+4+5)",
     voltage: { value: 408.3, unit: "V" },
     current: { value: 4.2, unit: "A" },
-    power: { value: 2, unit: "kW" }
+    power: { value: 2, unit: "kW" },
+    icon:Wind,
   },
   {
     name: "Air Compressor (1+2)",
     voltage: { value: 408.2, unit: "V" },
     current: { value: 91.7, unit: "A" },
-    power: { value: 55, unit: "kW" }
+    power: { value: 55, unit: "kW" },
+    icon:Wind,
   },
   {
     name: "Line-5",
     voltage: { value: 0, unit: "V" },
     current: { value: 0, unit: "A" },
-    power: { value: 0, unit: "kW" }
+    power: { value: 0, unit: "kW" },
+    icon:Settings2,
   },
   {
     name: "Line-4",
     voltage: { value: 406.2, unit: "V" },
     current: { value: 25.2, unit: "A" },
-    power: { value: 13, unit: "kW" }
+    power: { value: 13, unit: "kW" },
+    icon:Settings2,
   },
   {
     name: "Line-3",
     voltage: { value: 406.4, unit: "V" },
     current: { value: 13, unit: "A" },
-    power: { value: 1, unit: "kW" }
+    power: { value: 1, unit: "kW" },
+    icon:Settings2,
   },
   {
     name: "Line-1",
     voltage: { value: 407.4, unit: "V" },
     current: { value: 27.7, unit: "A" },
-    power: { value: 17, unit: "kW" }
+    power: { value: 17, unit: "kW" },
+    icon:Settings2,
   },
   {
     name: "Boiler",
     voltage: { value: 399.4, unit: "V" },
     current: { value: 43.6, unit: "A" },
-    power: { value: 25, unit: "kW" }
+    power: { value: 25, unit: "kW" },
+    icon:Flame,
   },
   {
     name: "Turbine 2",
     voltage: { value: 0, unit: "V" },
     current: { value: 0, unit: "A" },
-    power: { value: 0, unit: "kW" }
+    power: { value: 0, unit: "kW" },
+    icon:Factory,
   }
 ];

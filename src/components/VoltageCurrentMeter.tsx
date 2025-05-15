@@ -7,15 +7,26 @@ import {
   Tooltip,
   ChartOptions,
   ChartData,
-  ChartTypeRegistry,
 } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import { useTheme } from 'next-themes';
 
-// Register necessary elements
 ChartJS.register(ArcElement, Tooltip);
 
-// Plugin to draw the needle
-const needlePlugin = {
+
+
+
+type GaugeChartProps = {
+  value: number;
+};
+
+const VoltageCurrentMeter: React.FC<GaugeChartProps> = ({ value }) => {
+
+  const {theme} = useTheme();
+const needleColor = theme === 'ligth' ? 'white': 'black';
+
+
+  const needlePlugin = {
   id: 'needle',
   afterDatasetDraw(chart: any) {
     const { ctx, chartArea, config } = chart;
@@ -33,25 +44,22 @@ const needlePlugin = {
     ctx.moveTo(0, -2);
     ctx.lineTo(radius * 0.9, 0);
     ctx.lineTo(0, 2);
-    ctx.fillStyle = '#444';
+    ctx.fillStyle = needleColor;
     ctx.fill();
     ctx.restore();
 
-    // Center dot
     ctx.beginPath();
-    ctx.arc(cx, cy, 2, 0, Math.PI * 2);
-    ctx.fillStyle = '#444';
+    ctx.arc(cx, cy, 4, 0, Math.PI * 2);
+    ctx.fillStyle = needleColor;
     ctx.fill();
   },
 };
 
 ChartJS.register(needlePlugin as any);
 
-type GaugeChartProps = {
-  value: number;
-};
 
-const VoltageCurrentMeter: React.FC<GaugeChartProps> = ({ value }) => {
+
+
   const data: ChartData<'doughnut'> = {
     labels: ['Low', 'Medium', 'High'],
     datasets: [

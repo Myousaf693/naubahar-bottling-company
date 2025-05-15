@@ -7,7 +7,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { AlertTriangle, Bell } from "lucide-react";
+import {  Bell } from "lucide-react";
 import { alarms } from "@/app/data/notifications";
 
 const NotificationDropdown = () => {
@@ -15,11 +15,11 @@ const NotificationDropdown = () => {
     <div>
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <Bell className="text-white cursor-pointer" size={21} />
+          <Bell className="dark:text-white text-black cursor-pointer" size={21} />
         </DropdownMenuTrigger>
         <DropdownMenuContent
           align="end"
-          className=" max-h-[90vh] overflow-y-auto rounded-lg shadow-lg border bg-white p-4"
+          className=" max-h-[90vh] overflow-y-auto rounded-lg shadow-lg border dark:bg-gray-800 dark:text-white bg-white p-4"
           sideOffset={10}
         >
           <DropdownMenuLabel>
@@ -33,7 +33,7 @@ const NotificationDropdown = () => {
           <DropdownMenuSeparator />
           <div className="space-y-3">
             {alarms.map((alarm, idx) => (
-              <DropdownMenuItem>
+              <DropdownMenuItem className="dark:hover:bg-gray-600 dark:first:bg-gray-600 dark:text-white">
                 <div
                   key={idx}
                   className="w-full flex items-start justify-between pb-2"
@@ -41,11 +41,11 @@ const NotificationDropdown = () => {
                   <div className="flex items-start gap-2">
                     <Bell className="text-yellow-400 w-5 h-5 mt-1" />
                     <div>
-                      <p className="font-medium text-gray-800">{alarm.title}</p>
-                      <p className="text-sm text-gray-500">{alarm.desc}</p>
+                      <p className="font-medium text-gray-800 dark:text-white">{alarm.title}</p>
+                      <p className="text-sm text-gray-500 dark:text-white">{alarm.desc}</p>
                     </div>
                   </div>
-                  <span className="text-xs text-gray-400">{alarm.time}</span>
+                  <span className="text-xs text-gray-400 dark:text-white">{alarm.time}</span>
                 </div>
               </DropdownMenuItem>
             ))}
