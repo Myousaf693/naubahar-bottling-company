@@ -1,10 +1,11 @@
+import AlarmListener from "@/components/AlarmListner";
 import React from "react";
 
 const StatusTablePage = () => {
     
   return (
     <div>
-     <h1>Status Table</h1>
+     <AlarmListener/>
     </div>
   );
 };

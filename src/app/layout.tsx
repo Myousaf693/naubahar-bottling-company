@@ -1,20 +1,11 @@
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/layout/Sidebar";
 import Header from "@/components/layout/Header";
 import { ThemeProvider } from "next-themes";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,17 +18,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={`bg-gray-100 ${geistSans.variable} ${geistMono.variable} antialiased dark:bg-gray-700 dark:text-white`}
+        className={`h-full overflow-hidden bg-gray-100 antialiased dark:bg-gray-700 dark:text-white`}
       >
         <ThemeProvider enableSystem={true} attribute="class">
-        <div className="flex flex-col">
-
+        <div className="flex flex-col h-screen">
         <Header />
-        <div className="flex gap-0 flex-row">
+        <div className="flex gap-0 flex-row overflow-hidden">
         <Sidebar />
-        <main className="w-full h-full p-4 pb-0 overflow-hidden">
+        <main className="w-full h-full p-4 pb-0 overflow-y-auto">
           {children}
         </main>
         </div>
