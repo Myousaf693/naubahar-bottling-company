@@ -24,7 +24,7 @@ export default function RootLayout({
       >
         <ThemeProvider enableSystem={true} attribute="class">
         <div className="flex flex-col h-screen">
-        <Header />
+        {/* <Header /> */}
         <div className="flex gap-0 flex-row overflow-hidden">
         <Sidebar />
         <main className="w-full h-full p-4 pb-0 overflow-y-auto">
